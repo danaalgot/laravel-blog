@@ -63,4 +63,6 @@ You can install this globally or locally (where you want to create your project)
 - php artisan migrate
 - php artisan migrate:rollback
 
-
+## Controller commands
+---
+- php artisan make:controller Auth\\\register (makes a controller in a directory within the controllers)

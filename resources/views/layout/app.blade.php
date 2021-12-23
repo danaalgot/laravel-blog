@@ -11,16 +11,24 @@
     <header class="bg-orange-100 px-8 py-4">
         <nav class="flex justify-between">
             <ul class="flex items-center">
-                <li><a href="" class="pr-3">Home</a></li>
-                <li><a href="" class="pr-3">Dashboard</a></li>
-                <li><a href="" class="pr-3">Posts</a></li>
+                <li><a href="{{ route('home') }}" class="pr-4">Home</a></li>
+                <li><a href="{{ route('dashboard') }}" class="pr-4">Dashboard</a></li>
+                <li><a href="" class="pr-4">Posts</a></li>
             </ul>
     
             <ul class="flex items-center">
-                <li><a href="" class="pr-3">Name</a></li>
-                <li><a href="" class="pr-3">Login</a></li>
-                <li><a href="" class="pr-3">Register</a></li>
-                <li><a href="" class="pr-3">Logout</a></li>
+                @auth
+                    <li><a href="" class="pr-3">Hi {{ auth()->user()->name }}</a></li>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <input type="submit" value="Logout" class="pr-4 cursor-pointer">
+                    </form>
+                @endauth
+
+                @guest
+                    <li><a href="{{ route('login') }}" class="pr-4">Login</a></li>
+                    <li><a href="{{ route('register') }}" class="pr-4">Register</a></li>
+                @endguest
             </ul>
         </nav>
     </header>

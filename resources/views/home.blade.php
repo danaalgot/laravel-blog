@@ -1,5 +1,5 @@
 @extends('layout.app')
 
 @section('content')
-    <h1 class="text-3xl">Blog Posts</h1>
+    <h1 class="text-3xl">Home</h1>
 @endsection
