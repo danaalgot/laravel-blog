@@ -10,7 +10,8 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::paginate(20);
+        // Eager loading the two relationships to have less queries on the page
+        $posts = Post::latest()->with('user', 'likes')->paginate(20);
 
         return view('posts.index', [
             'posts' => $posts
@@ -27,6 +28,13 @@ class PostController extends Controller
             'body' => $request->body
         ]);
 
+        return back();
+    }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('delete', $post); // The policy that we made in action - it throws an exception
+        $post->delete();
         return back();
     }
 }

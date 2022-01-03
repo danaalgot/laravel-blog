@@ -50,3 +50,20 @@ Factories will add dummy content into your database for you.
     ```
     App\Models\Post::factory()->times(100)->create(['user_id' => 1]);
     ```
+
+## Laravel Debugbar
+---
+https://github.com/barryvdh/laravel-debugbar
+
+## Fixing the queries count per page (As shown in the Debugbar)
+---
+If you add `with('user', 'likes')` to the main query this will eager load the relation ships to that table. For instance we've added it to the posts query (in our PostController) since on our posts page we are also grabbing the user for the post and the likes. This takes down the queries count for the page, which I guess helps with performance. 
+
+It would look like... `Post::with('user', 'likes')`
+
+## Using Policies
+---
+- Create a new policy with `php artisan make:policy PolicyName`
+- Go to Providers/AuthServiceProvider
+- Connect the Model to the policy within the $protected area. For posts I've added `Post::class => 'PostPolicy::class'`
+- Add the policy where you want to check. I've added the PostPolicy to the PostController in the delete function like `$this->authorize('delete', $post);`. This throws an exception and won't let the user delete the post. Use @can to check policies in blade templates like so: `@can('delete', $post)`.
