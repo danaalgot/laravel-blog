@@ -56,4 +56,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Like::class);
     }
+
+    // Relationship to see how many likes the user has on all their posts combined
+    public function receivedLikes()
+    {
+        return $this->hasManyThrough(Like::class, Post::class);
+    }
 }

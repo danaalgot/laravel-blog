@@ -58,3 +58,9 @@ It would look like... `Post::with('user', 'likes')`
 - Go to Providers/AuthServiceProvider
 - Connect the Model to the policy within the $protected area. For posts I've added `Post::class => 'PostPolicy::class'`
 - Add the policy where you want to check. I've added the PostPolicy to the PostController in the delete function like `$this->authorize('delete', $post);`. This throws an exception and won't let the user delete the post. Use @can to check policies in blade templates like so: `@can('delete', $post)`.
+
+## Components
+- Create a component with `php artisan make:component name`. This will put a component in the app/view/components folder and a view in the views/components folder.
+- Delete the component file from app/view/components to make this an anonymous component (since we already have a controller for posts).
+- Place the HTML within the views/components file and also define the props for that component at the top of the file with `@props(['post' => $post])`.
+- Wherever you want to use that component, simply put `<x-post :post="$post" />` along with any props you want to pass. The props should match the props declared within the component view.
