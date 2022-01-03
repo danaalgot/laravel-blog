@@ -35,3 +35,18 @@ You can install this globally or locally (where you want to create your project)
 ## Controller commands
 ---
 - php artisan make:controller Auth\\\register (makes a controller in a directory within the controllers)
+
+## Using factories
+---
+Factories will add dummy content into your database for you.
+
+- Make sure you create the factory when you create the model and migration with -f
+- Add a definition to the factory. (See the user or post factory for a example)
+- Open the terminal. Run php artisan tinker
+    ```
+    php artisan tinker
+    ```
+- Then run a command like the one below. (This one is creating posts with a user_id of 1)
+    ```
+    App\Models\Post::factory()->times(100)->create(['user_id' => 1]);
+    ```
