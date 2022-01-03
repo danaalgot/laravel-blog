@@ -29,6 +29,6 @@
             <input type="checkbox" name="remember" id="remember" class="mr-2">
             <label for="remember">Remember me</label>
         </div>
-        <input type="submit" value="Submit" class="duration-300 bg-orange-100 hover:bg-orange-300 py-4 px-8 rounded inline-block mt-4">
+        <input type="submit" value="Submit" class="cursor-pointer duration-300 bg-orange-100 hover:bg-orange-300 py-4 px-8 rounded inline-block mt-4">
     </form>
 @endsection

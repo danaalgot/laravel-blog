@@ -15,38 +15,7 @@ You can install this globally or locally (where you want to create your project)
 
 ## Setting up Tailwind CSS
 ---
-1. Open terminal within your project 
-2. Install all npm packages with 
-    ``` 
-    npm install 
-    ```
-3. Install tailwind by entering the following commands in the terminal
-    ```
-    npm install -D tailwindcss postcss autoprefixer
-    npx tailwindcss init
-    ```
-4. Add laravel to your webpack.mix.js file
-    ```
-    require("tailwindcss")
-    ```
-5. Configure your template paths in the tailwind.config.js file
-    ```
-    content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-    ],
-    ```
-6. Add directives to your resouces/css/add.css file
-    ```
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    ```
-7. In the terminal, run
-    ```
-    npm run dev OR npm run watch (if dev doesn't work)
-    ```
+1. Follow the steps to [install tailwind.](https://tailwindcss.com/docs/guides/laravel)
 
 ## Connecting your database
 ---
