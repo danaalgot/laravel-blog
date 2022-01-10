@@ -64,3 +64,7 @@ It would look like... `Post::with('user', 'likes')`
 - Delete the component file from app/view/components to make this an anonymous component (since we already have a controller for posts).
 - Place the HTML within the views/components file and also define the props for that component at the top of the file with `@props(['post' => $post])`.
 - Wherever you want to use that component, simply put `<x-post :post="$post" />` along with any props you want to pass. The props should match the props declared within the component view.
+
+## Mail
+- Set up the .env file with your mail provider credentials
+- Make a new mail template with `artisan make:mail PostLiked --markdown=emails.posts.post_liked`. This will create a file in resources/views/emails and in app/http/mail.

@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['auth'])->only(['store', 'deystroy']);
+    }
+
     public function index()
     {
         // Eager loading the two relationships to have less queries on the page
